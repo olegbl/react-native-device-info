@@ -30,8 +30,9 @@ typedef NS_ENUM(NSInteger, DeviceType) {
 #define DeviceTypeValues [NSArray arrayWithObjects: @"Handset", @"Tablet", @"Tv", @"Unknown", nil]
 
 #if !(TARGET_OS_TV)
-@import CoreTelephony;
-@import Darwin.sys.sysctl;
+#import <CoreTelephony/CTCarrier.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
+#import <sys/sysctl.h>
 #endif
 
 @implementation RNDeviceInfo
