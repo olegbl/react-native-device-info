@@ -691,13 +691,6 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
   @ReactMethod(isBlockingSynchronousMethod = true)
   @SuppressWarnings({"ConstantConditions", "deprecation"})
   public String getInstanceIdSync() {
-    try {
-      if (Class.forName("com.google.android.gms.iid.InstanceID") != null) {
-        return com.google.android.gms.iid.InstanceID.getInstance(getReactApplicationContext()).getId();
-      }
-    } catch (ClassNotFoundException e) {
-      System.err.println("N/A: Add com.google.android.gms:play-services-gcm to your project.");
-    }
     return "unknown";
   }
   @ReactMethod
